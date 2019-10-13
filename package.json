@@ -1,0 +1,31 @@
+{
+  "name": "project-two",
+  "version": "1.0.0",
+  "description": "demonstrate a RESTful API with MongoDB backend",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willswire/project-two.git"
+  },
+  "contributors": [
+    "Muhammet Aydin",
+    "Scott Benton",
+    "CJ Lambert",
+    "Connor Onweller",
+    "Will Walker"
+  ],
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/willswire/project-two/issues"
+  },
+  "homepage": "https://github.com/willswire/project-two#readme"
+}
