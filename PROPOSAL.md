@@ -12,8 +12,12 @@
 
 ### A brief (one or two paragraph) discussion of what project 3 will be like (the user interface).
 
--  
+-  Users have a few dashboards they can view: their grocery list, their current pantry, and some data visualizations about their activity using the application. In the grocery list, users can add new items and remove items they might no longer want to purchase. Additionally, expired items from the users pantry can show up as a recommended item that they can choose to add if they would like to repurchase. In the pantry dashboard, users can see all of the items they have recently purchased and any metadata assosciated with them; things like expiration date, food group or product category, cost, and quantity. In another dashboard, users can view data visualizations of their activity on the application and see what kind of products they most often buy, if they usually finish them before they expire (if the item is perishable), how much money they spend in a certain category. The idea is that users that belong to the same family (could be any kind of grouping of users: company, family, roommmates, etc) all see the same information in these dashboards and changes by one user are reflected for all users. 
 
-### A brief listing of who will be responsible for what during the design and development process.
+### A brief listing of who will be responsible for what during the design and development process. ([Subject to change])
 
--  
+-  Muhammet: 
+-  Scott:
+-  CJ:
+-  Connor:
+-  Will: 
