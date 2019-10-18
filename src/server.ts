@@ -1,7 +1,10 @@
 import bodyParser from "body-parser";
 import express from "express";
+import swaggerJsdoc from "swagger-jsdoc";
+import swaggerUI from "swagger-ui-express";
+import { SWAGGER_CONFIG } from "./swaggerConfig";
 
-import {ApiRouter} from "./router";
+import { ApiRouter } from "./router";
 
 class Application {
     public app: express.Application;
@@ -36,6 +39,8 @@ class Application {
     // setup routes for the express server
     public buildRoutes(): void {
         this.app.use("/api", new ApiRouter().getRouter());
+        const swaggerConfig = swaggerJsdoc(SWAGGER_CONFIG);
+        this.app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerConfig));
     }
 }
 new Application().start();
