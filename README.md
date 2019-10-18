@@ -1,5 +1,5 @@
 # Pantry API
-### Developing the 
+### Development Help
 use the command
 ```
 npm run dev
