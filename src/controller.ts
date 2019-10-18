@@ -6,12 +6,12 @@ export class Controller {
      * @swagger
      * /hello:
      *  get:
-     *    description: Returns the word hello
+     *    description: Returns Hello World
      *    tags:
      *      - hello
      *    responses:
      *      200:
-     *        description: returns the word hello
+     *        description: returns Hello World
      *        schema:
      *          type: string
      *      400:
