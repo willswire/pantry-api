@@ -5,6 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const body_parser_1 = __importDefault(require("body-parser"));
 const express_1 = __importDefault(require("express"));
+const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
+const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
+const swaggerConfig_1 = require("./swaggerConfig");
 const router_1 = require("./router");
 class Application {
     constructor() {
@@ -35,6 +38,8 @@ class Application {
     // setup routes for the express server
     buildRoutes() {
         this.app.use("/api", new router_1.ApiRouter().getRouter());
+        const swaggerConfig = swagger_jsdoc_1.default(swaggerConfig_1.SWAGGER_CONFIG);
+        this.app.use("/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerConfig));
     }
 }
 new Application().start();
