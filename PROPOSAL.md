@@ -16,10 +16,8 @@
 
 ### A brief listing of who will be responsible for what during the design and development process. 
 
-([Definitely subject to change])
-
--  Muhammet: Data visualizations, API endpoints
--  Scott: Data visualizations, API endpoints
--  CJ: Pantry dashboard, Items collection
--  Connor: Pantry dashboard, Users collection
--  Will: Grocery list dashboard, Groups collection
+- CJ: Users endpoints + authentication
+- Connor: Users endpoints + authentication
+- Scott: Swagger + project dev
+- Muhammet: Items endpoints
+- Will: Lists endpoints
