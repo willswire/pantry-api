@@ -9,8 +9,8 @@
     * Return individual user
 * [ ] `PUT/users/${id}`
     * Update individual user information
-* [ ] `GET/users/${id}/listss`
-    * Return individual user's list
+* [ ] `GET/users/${id}/lists`
+    * Return individual user's lists
 
 ## Item
 * [ ] `POST/items`
