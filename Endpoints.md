@@ -1,31 +1,31 @@
 # Endpoints
 
 ## User
-* [ ] `POST/user`
+* [ ] `POST/users`
    * Create new user
-* [ ] `GET/user`
+* [ ] `GET/users`
     * Return all users
-* [ ] `GET/user/${id}`
+* [ ] `GET/users/${id}`
     * Return individual user
-* [ ] `PUT/user/${id}`
+* [ ] `PUT/users/${id}`
     * Update individual user information
-* [ ] `GET/user/${id}/lists`
+* [ ] `GET/users/${id}/listss`
     * Return individual user's list
 
 ## Item
-* [ ] `POST/item`
+* [ ] `POST/items`
    * Create new item
-* [ ] `GET/item`
+* [ ] `GET/items`
     * Return all items
-* [ ] `GET/item/${id}`
+* [ ] `GET/items/${id}`
     * Return individual item
-* [ ] `DELETE/item/${id}`
+* [ ] `DELETE/items/${id}`
     * Delete individual item
 
 ## List
-* [ ] `POST/list`
+* [ ] `POST/lists`
    * Create new list
-* [ ] `GET/list/${id}`
+* [ ] `GET/lists/${id}`
     * Return individual list
-* [ ] `DELETE/list/${id}`
+* [ ] `DELETE/lists/${id}`
     * Delete individual list
