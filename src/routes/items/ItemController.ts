@@ -2,7 +2,7 @@ const mongoClient = require('../../database');
 const Item = require('../../models/Item');
 
 export class ItemController{
-    public static getAllItems(req: any, res: any){
+    public getAllItems(req: any, res: any){
         Item.find({}, function(err: any, data: any){
             if(err){
                 res.send(err);
@@ -15,7 +15,7 @@ export class ItemController{
         });
     }
     
-    public static getItemByID(req: any, res: any){
+    public getItemByID(req: any, res: any){
         Item.find({"Name": req.params.itemID}, function(err: any, data: any){
             if(err){
                 res.send(err);
@@ -28,7 +28,7 @@ export class ItemController{
         });
     }
     
-    public static deleteItemByID(req: any, res: any){
+    public deleteItemByID(req: any, res: any){
         Item.find({"Name": req.params.itemID}, function(err: any, data: any){
             if(err){
                 res.send(err);
