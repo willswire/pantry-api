@@ -3,7 +3,8 @@ import {ItemController} from './ItemController';
 
 var itemController = new ItemController();
 
-items.get('/all-items', itemController.getAllItems);
+items.get('/', itemController.getAllItems);
+items.post('/', itemController.createItem);
 items.get('/:itemID', itemController.getItemByID);
 items.delete('/:itemID', itemController.deleteItemByID);
 // items.put('/:itemID, PUTFUNCTION);
