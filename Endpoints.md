@@ -13,19 +13,19 @@
     * Return individual user's lists
 
 ## Item
-* [ ] `POST/items`
+* [x] `POST/items`
    * Create new item
-* [ ] `GET/items`
+* [x] `GET/items`
     * Return all items
-* [ ] `GET/items/${id}`
+* [x] `GET/items/${id}`
     * Return individual item
-* [ ] `DELETE/items/${id}`
+* [x] `DELETE/items/${id}`
     * Delete individual item
 
 ## List
-* [ ] `POST/lists`
+* [x] `POST/lists`
    * Create new list
-* [ ] `GET/lists/${id}`
+* [x] `GET/lists/${id}`
     * Return individual list
-* [ ] `DELETE/lists/${id}`
+* [x] `DELETE/lists/${id}`
     * Delete individual list
