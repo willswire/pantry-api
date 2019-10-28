@@ -1,30 +1,28 @@
-const mongoClient = require('../../database');
-const Item = require('../../models/Item');
+const List = require('../../models/List');
+var mongoose = require('mongoose');
 
 export class ListController {
 
     public createList(req: any, res: any) {
-        if (!req.body.itemID) {
-            res.status(400).send({ error: "Please provide a name for the list" });
-        }
-        else {
-            Item.create({
-                "Name": req.body.itemID,
-                "LifetimeSales": 0
-            }, function (err: any, data: any) {
-                if (err) {
-                    res.send(err);
-                }
+        var newListID = mongoose.Types.ObjectId();
+        List.create({
+            "_id": newListID,
+            "has": new Object,
+            "wants": new Object,
+            "had": new Object
+        }, function (err: any, data: any) {
+            if (err) {
+                res.send(err);
+            }
 
-                else {
-                    res.status(200).send();
-                }
-            });
-        }
+            else {
+                res.send("The list has been created and has an id of: " + newListID);
+            }
+        });
     }
 
     public getListByID(req: any, res: any) {
-        Item.find({ "Name": req.params.itemID }, function (err: any, data: any) {
+        List.findById(req.params.listID, function (err: any, data: any) {
             if (err) {
                 res.send(err);
             }
@@ -37,13 +35,13 @@ export class ListController {
     }
 
     public deleteListByID(req: any, res: any) {
-        Item.deleteOne({ "Name": req.params.itemID }, function (err: any, data: any) {
+        List.findOneAndDelete(req.params.listID, function (err: any, data: any) {
             if (err) {
                 res.send(err);
             }
 
             else {
-                res.send("deleted");
+                res.send("list deleted");
             }
         });
     }
