@@ -1,6 +1,10 @@
 const lists = require('express').Router();
+import { ListController } from './ListController';
 
-// lists.get('/', GETFUNCTION);
-// lists.put('/:listID, PUTFUNCTION);
-lists.get('/', (req: any, res: any) => res.status(200).json({ "Test": "Yay" }));
+var listController = new ListController();
+
+lists.post('/', listController.createList);
+lists.get('/:listID', listController.getListByID);
+lists.delete('/:listID', listController.deleteListByID);
+
 module.exports = lists;
