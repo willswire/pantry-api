@@ -1,28 +1,70 @@
-import { sign } from 'jsonwebtoken';
-import { config }  from '../../config/config';
+import { sign } from "jsonwebtoken";
+import { config } from "../../config/config";
+const User = require('../../models/user'),
 
-function generateToken(user) {
-    return sign(user, config.secret, {
-        expiresIn: 10080 // in seconds
+// function generateToken(user: any) {
+//   return sign(user, config.secret, {
+//     expiresIn: 10080 // in seconds
+//   });
+// }
+
+export class UserController {
+
+  public createUser(req: any, res: any) {
+    if(
+      !req.body.name ||
+      !req.body.birthday ||
+      !req.body.gender ||
+      !req.body.lists ||
+      !req.body.username ||
+      !req.body.password
+    ) {
+      res.status(400).send({
+        error: 'Please provide all required information for user registration'
+      });
+    } else {
+      User.create({
+      "Name" : req.body.name,
+      "Birthday" : req.body.birthday,
+      "Gender" : req.body.gender,
+      "Lists" : req.body.lists,
+      "Username" : req.body.username,
+      "Password" : req.body.password
+      }, (err: any, data: any) => {
+        if(err) {
+          res.send(err);
+        } else {
+          res.status(200).send();
+        }
+      });
+    }
+  }
+
+  public getUsers(req: any, res: any) {
+    User.find({}, (err: any, data: any) => {
+      if(err) {
+        res.send(err);
+      } else {
+        console.log(data);
+        res.send(data);
+      }
     });
-}
+  }
 
-// =============================================================================
-// Login Route
-// =============================================================================
-exports.login = function (req, res, next) {
-    User.findOne({ email: req.body.email }, function (err, user) {
-        if (err) { return res.status(400).json({ error: "bad data" }); }
-        if (!user) { return res.status(400).json({ error: 'Your login details could not be verified. Please try again.' }); }
-        user.comparePassword(req.body.password, function (err, isMatch) {
-            if (err) { return res.status(400).json({ error: "bad data" }); }
-            if (!isMatch) { return res.status(400).json({ error: 'Your login details could not be verified. Please try again.' }); }
-
-                let userInfo = user.toJson();
-                res.status(200).json({
-                    token: 'Bearer ' + generateToken(userInfo),
-                    user: userInfo
-                });
-        });
+  public getUser(req: any, res: any) {
+    User.find({'Name': req.params.itemID}, (err: any, data: any) => {
+      if (err) {
+        res.send(err);
+      } else {
+        console.log(data);
+        res.send(data);
+      }
     });
+  }
+
+  public getUserList(req: any, res: any) { }
+
+  public updateUser(req: any, res: any) { }
+
+  public deleteUser(req: any, res: any) { }
 }
