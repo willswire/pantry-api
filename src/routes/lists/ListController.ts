@@ -4,12 +4,16 @@ var mongoose = require('mongoose');
 export class ListController {
 
     public createList(req: any, res: any) {
+        if (!req.body.title) {
+            res.status(400).send({ error: "Please specify a title for this new list" });
+        }
         var newListID = mongoose.Types.ObjectId();
         List.create({
             "_id": newListID,
             "has": new Object,
             "wants": new Object,
-            "had": new Object
+            "had": new Object,
+            "title": req.body.title
         }, function (err: any, data: any) {
             if (err) {
                 res.send(err);
