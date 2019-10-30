@@ -8,5 +8,19 @@ export const SWAGGER_CONFIG = {
       title: "Pantry API",
       version: "1.0.0",
     },
+    components: {
+      schemas: {
+        Item: {
+          properties: {
+            Name: {
+              type: 'string'
+            },
+            LifetimeSales: {
+              type: 'integer'
+            }
+          }
+        }
+      }
+    }
   },
 };
