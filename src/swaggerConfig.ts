@@ -19,6 +19,24 @@ export const SWAGGER_CONFIG = {
               type: 'integer'
             }
           }
+        },
+        newList: {
+          properties: {
+
+          }
+        },
+        existingList: {
+          properties: {
+            has: {
+              type: 'object',
+            },
+            wants: {
+              type: 'object',
+            },
+            had: {
+              type: 'object',
+            }
+          }
         }
       }
     }
