@@ -16,7 +16,7 @@ export class ListController {
             }
 
             else {
-                res.send("The list has been created and has an id of: " + newListID);
+                res.send(newListID);
             }
         });
     }
@@ -41,7 +41,7 @@ export class ListController {
             }
 
             else {
-                res.send("list deleted");
+                res.send(200).send();
             }
         });
     }
