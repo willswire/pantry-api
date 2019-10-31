@@ -1,7 +1,9 @@
-const items = require('express').Router();
-import { ItemController } from './ItemController';
+import {Router} from "express";
+import {ItemController} from "./ItemController";
 
-var itemController = new ItemController();
+const items = Router();
+
+const itemController = new ItemController();
 
 /**
  * @swagger
@@ -18,7 +20,7 @@ var itemController = new ItemController();
  *      400:
  *        description: failure fetching items
  */
-items.get('/', itemController.getAllItems);
+items.get("/", itemController.getAllItems);
 
 /**
  * @swagger
@@ -40,7 +42,7 @@ items.get('/', itemController.getAllItems);
  *      400:
  *        description: failure fetching items
  */
-items.post('/', itemController.createItem);
+items.post("/", itemController.createItem);
 
 /**
  * @swagger
@@ -64,7 +66,7 @@ items.post('/', itemController.createItem);
  *      400:
  *        description: failure fetching item with given id
  */
-items.get('/:itemID', itemController.getItemByID);
+items.get("/:itemID", itemController.getItemByID);
 
 /**
  * @swagger
@@ -86,7 +88,7 @@ items.get('/:itemID', itemController.getItemByID);
  *      400:
  *        description: failure deleting item with given id
  */
-items.delete('/:itemID', itemController.deleteItemByID);
+items.delete("/:itemID", itemController.deleteItemByID);
 // items.put('/:itemID, PUTFUNCTION);
 
-module.exports = items;
+export default items;

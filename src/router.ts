@@ -1,6 +1,6 @@
 import express from "express";
+import routes from "./routes";
 
-const routes = require('./routes');
 export class ApiRouter {
     private router: express.Router = routes;
 

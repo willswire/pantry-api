@@ -1,15 +1,15 @@
-var mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var listsSchema = new Schema({
-  has: Object,
-  wants: Object,
+const listsSchema = new Schema({
   had: Object,
-  title: String
+  has: Object,
+  title: String,
+  wants: Object
 }, {
-  versionKey: false, // You should be aware of the outcome after set to false
-  minimize: false // Needed in order to allow for the creation of empty objects
+  minimize: false, // Needed in order to allow for the creation of empty objects
+  versionKey: false // You should be aware of the outcome after set to false
 });
 
-module.exports = mongoose.model('lists', listsSchema);
+export default mongoose.model("lists", listsSchema);

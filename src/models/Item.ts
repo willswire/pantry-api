@@ -1,13 +1,13 @@
-var mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var itemsSchema = new Schema({
-    objectId: mongoose.Schema.Types.ObjectId,
+const itemsSchema = new Schema({
+    LifetimeSales: Number,
     Name:  String,
-    LifetimeSales: Number
+    objectId: mongoose.Schema.Types.ObjectId,
   }, {
     versionKey: false // You should be aware of the outcome after set to false
 });
 
-module.exports = mongoose.model('items', itemsSchema);
+export default mongoose.model("items", itemsSchema);
