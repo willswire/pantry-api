@@ -13,10 +13,10 @@ export const SWAGGER_CONFIG = {
         Item: {
           properties: {
             Name: {
-              type: 'string'
+              type: "string"
             },
             LifetimeSales: {
-              type: 'integer'
+              type: "integer"
             }
           }
         },
@@ -28,13 +28,13 @@ export const SWAGGER_CONFIG = {
         existingList: {
           properties: {
             has: {
-              type: 'object',
+              type: "object",
             },
             wants: {
-              type: 'object',
+              type: "object",
             },
             had: {
-              type: 'object',
+              type: "object",
             }
           }
         }

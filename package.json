@@ -27,7 +27,7 @@
   },
   "scripts": {
     "clean": "rimraf dist/*",
-    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix --force",
     "tsc": "tsc",
     "build": "npm-run-all clean lint tsc",
     "dev-deb": "ts-node-dev --respawn --transpileOnly --nolazy --inspect-brk=5858 ./src/server.ts",
