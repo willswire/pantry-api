@@ -1,5 +1,5 @@
-const List = require('../../models/List');
-var mongoose = require('mongoose');
+const List = require("../../models/List");
+const mongoose = require("mongoose");
 
 export class ListController {
 
@@ -7,31 +7,27 @@ export class ListController {
         if (!req.body.title) {
             res.status(400).send({ error: "Please specify a title for this new list" });
         }
-        var newListID = mongoose.Types.ObjectId();
+        const newListID = mongoose.Types.ObjectId();
         List.create({
-            "_id": newListID,
-            "has": new Object,
-            "wants": new Object,
-            "had": new Object,
-            "title": req.body.title
-        }, function (err: any, data: any) {
+            _id: newListID,
+            has: new Object,
+            wants: new Object,
+            had: new Object,
+            title: req.body.title
+        }, function(err: any, data: any) {
             if (err) {
                 res.send(err);
-            }
-
-            else {
+            } else {
                 res.send(newListID);
             }
         });
     }
 
     public getListByID(req: any, res: any) {
-        List.findById(req.params.listID, function (err: any, data: any) {
+        List.findById(req.params.listID, function(err: any, data: any) {
             if (err) {
                 res.send(err);
-            }
-
-            else {
+            } else {
                 console.log(data);
                 res.send(data);
             }
@@ -39,16 +35,13 @@ export class ListController {
     }
 
     public deleteListByID(req: any, res: any) {
-        List.findOneAndDelete(req.params.listID, function (err: any, data: any) {
+        List.findOneAndDelete(req.params.listID, function(err: any, data: any) {
             if (err) {
                 res.send(err);
-            }
-
-            else {
+            } else {
                 res.send(200).send();
             }
         });
     }
-
 
 }

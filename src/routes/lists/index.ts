@@ -1,7 +1,7 @@
-const lists = require('express').Router();
-import { ListController } from './ListController';
+const lists = require("express").Router();
+import { ListController } from "./ListController";
 
-var listController = new ListController();
+const listController = new ListController();
 
 /**
  * @swagger
@@ -23,7 +23,7 @@ var listController = new ListController();
  *      400:
  *        description: failure fetching lists
  */
-lists.post('/', listController.createList);
+lists.post("/", listController.createList);
 
 /**
  * @swagger
@@ -47,7 +47,7 @@ lists.post('/', listController.createList);
  *      400:
  *        description: failure getting list with given id
  */
-lists.get('/:listID', listController.getListByID);
+lists.get("/:listID", listController.getListByID);
 
 /**
  * @swagger
@@ -69,6 +69,6 @@ lists.get('/:listID', listController.getListByID);
  *      400:
  *        description: failure deleting item with given id
  */
-lists.delete('/:listID', listController.deleteListByID);
+lists.delete("/:listID", listController.deleteListByID);
 
 module.exports = lists;

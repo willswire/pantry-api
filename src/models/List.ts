@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var listsSchema = new Schema({
+const listsSchema = new Schema({
   has: Object,
   wants: Object,
   had: Object,
@@ -12,4 +12,4 @@ var listsSchema = new Schema({
   minimize: false // Needed in order to allow for the creation of empty objects
 });
 
-module.exports = mongoose.model('lists', listsSchema);
+module.exports = mongoose.model("lists", listsSchema);
