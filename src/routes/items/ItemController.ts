@@ -5,12 +5,12 @@ export class ItemController{
     public getAllItems(req: any, res: any){
         Item.find({}, function(err: any, data: any){
             if(err){
-                res.send(err);
+                res.status(400).send(err);
             }
     
             else{
                 console.log(data);
-                res.send(data);
+                res.status(200).send(data);
             }
         });
     }
@@ -18,7 +18,7 @@ export class ItemController{
     public getItemByID(req: any, res: any){
         Item.findById(req.params.itemID, function(err: any, data: any){
             if(err){
-                res.send(err);
+                res.status(400).send(err);
             }
     
             else{
@@ -31,7 +31,7 @@ export class ItemController{
     public deleteItemByID(req: any, res: any){
         Item.findByIdAndDelete(req.params.itemID, function(err: any, data: any){
             if(err){
-                res.send(err);
+                res.status(400).send(err);
             }
     
             else{
@@ -43,7 +43,7 @@ export class ItemController{
     public getItemByName(req: any, res: any){
         Item.find({"name": req.params.name}, function(err: any, data: any){
             if(err){
-                res.send(err);
+                res.status(400).send(err);
             }
 
             else{
@@ -55,7 +55,7 @@ export class ItemController{
     public deleteItemByName(req: any, res: any){
         Item.deleteOne({"name": req.body.name}, function(err: any, data: any){
             if(err){
-                res.send(err);
+                res.status(400).send(err);
             }
     
             else{
@@ -72,7 +72,7 @@ export class ItemController{
             Item.create({"name": req.body.name,
                         "lifetimesales": 0}, function(err: any, data: any){
                 if(err){
-                    res.send(err);
+                    res.status(400).send(err);
                 }
                 
                 else{
