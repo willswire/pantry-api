@@ -87,7 +87,7 @@ export class ItemController{
             }
 
             else{
-                res.status(200).send(data);
+                res.status(200).send();
             }
         });
     }
@@ -99,7 +99,7 @@ export class ItemController{
             }
 
             else{
-                res.status(200).send(data);
+                res.status(200).send();
             }
         });
     }
