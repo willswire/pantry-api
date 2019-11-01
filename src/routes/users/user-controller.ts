@@ -1,6 +1,6 @@
 import { sign } from "jsonwebtoken";
 import { config } from "../../config/config";
-const User = require('../../models/user'),
+const User = require('../../models/user');
 
 // function generateToken(user: any) {
 //   return sign(user, config.secret, {
@@ -52,7 +52,7 @@ export class UserController {
   }
 
   public getUser(req: any, res: any) {
-    User.find({'Name': req.params.itemID}, (err: any, data: any) => {
+    User.find({'Username': req.params.username}, (err: any, data: any) => {
       if (err) {
         res.send(err);
       } else {
@@ -62,9 +62,20 @@ export class UserController {
     });
   }
 
-  public getUserList(req: any, res: any) { }
+  public getUserLists(req: any, res: any) {
+    User.find({'Username': req.params.username}, (err: any, data: any) => {
+      if (err) {
+        res.send(err);
+      } else {
+        console.log(data.lists);
+        res.send(data.lists);
+      }
+    })
+  }
 
-  public updateUser(req: any, res: any) { }
+  public updateUser(req: any, res: any) {
+    
+  }
 
   public deleteUser(req: any, res: any) { }
 }
