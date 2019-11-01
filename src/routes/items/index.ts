@@ -6,7 +6,8 @@ var itemController = new ItemController();
 items.get('/', itemController.getAllItems);
 items.post('/', itemController.createItem);
 items.get('/:itemID', itemController.getItemByID);
+items.get('/name/:name', itemController.getItemByName);
+items.delete('/name/:name', itemController.deleteItemByName);
 items.delete('/:itemID', itemController.deleteItemByID);
-// items.put('/:itemID, PUTFUNCTION);
 
 module.exports = items;

@@ -16,37 +16,61 @@ export class ItemController{
     }
     
     public getItemByID(req: any, res: any){
-        Item.find({"Name": req.params.itemID}, function(err: any, data: any){
+        Item.findById(req.params.itemID, function(err: any, data: any){
             if(err){
                 res.send(err);
             }
     
             else{
                 console.log(data);
-                res.send(data);
+                res.status(200).send(data);
             }
         });
     }
     
     public deleteItemByID(req: any, res: any){
-        Item.deleteOne({"Name": req.params.itemID}, function(err: any, data: any){
+        Item.findByIdAndDelete(req.params.itemID, function(err: any, data: any){
             if(err){
                 res.send(err);
             }
     
             else{
-                res.send("deleted");
+                res.status(200).send();
+            }
+        });
+    }
+
+    public getItemByName(req: any, res: any){
+        Item.find({"name": req.params.name}, function(err: any, data: any){
+            if(err){
+                res.send(err);
+            }
+
+            else{
+                res.status(200).send(data);
+            }
+        });
+    }
+    
+    public deleteItemByName(req: any, res: any){
+        Item.deleteOne({"name": req.body.name}, function(err: any, data: any){
+            if(err){
+                res.send(err);
+            }
+    
+            else{
+                res.status(200).send();
             }
         });
     }
     
     public createItem(req: any, res: any){
-        if(!req.body.itemID){
+        if(!req.body.name){
             res.status(400).send({ error: "Please provide a name for the item"});
         }
         else{
-            Item.create({"Name": req.body.itemID,
-                        "LifetimeSales": 0}, function(err: any, data: any){
+            Item.create({"name": req.body.name,
+                        "lifetimesales": 0}, function(err: any, data: any){
                 if(err){
                     res.send(err);
                 }

@@ -1,4 +1,4 @@
-const uri = "mongodb+srv://testAdmin:test123@cluster0-jedvy.mongodb.net/pantry?retryWrites=true&w=majority";
+const uri = "mongodb+srv://user123:anotherpassword@cluster0-jedvy.mongodb.net/pantry?retryWrites=true&w=majority";
 const mongo = require('mongoose');
 
 const client = mongo.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true}, function(error: any, response: any){
