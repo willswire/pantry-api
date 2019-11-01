@@ -9,5 +9,8 @@ items.get('/:itemID', itemController.getItemByID);
 items.get('/item/:name', itemController.getItemByName);
 items.delete('/item/:name', itemController.deleteItemByName);
 items.delete('/:itemID', itemController.deleteItemByID);
+items.put('/item/:name', itemController.updateItemByName);
+items.put('/:itemID', itemController.updateItemByID);
+
 
 module.exports = items;

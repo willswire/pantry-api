@@ -9,7 +9,6 @@ export class ItemController{
             }
     
             else{
-                console.log(data);
                 res.status(200).send(data);
             }
         });
@@ -22,7 +21,6 @@ export class ItemController{
             }
     
             else{
-                console.log(data);
                 res.status(200).send(data);
             }
         });
@@ -80,5 +78,29 @@ export class ItemController{
                 }
             });
         }
+    }
+
+    public updateItemByID(req: any, res: any){
+        Item.findByIdAndUpdate(req.params.itemID, req.body, function(err: any, data: any){
+            if(err){
+                res.status(400).send(err);
+            }
+
+            else{
+                res.status(200).send(data);
+            }
+        });
+    }
+
+    public updateItemByName(req: any, res: any){
+        Item.findOneAndUpdate({"name": req.params.name}, req.body, function(err: any, data: any){
+            if(err){
+                res.status(400).send(err);
+            }
+
+            else{
+                res.status(200).send(data);
+            }
+        });
     }
 }
