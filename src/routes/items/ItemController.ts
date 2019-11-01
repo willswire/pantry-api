@@ -53,7 +53,7 @@ export class ItemController{
     }
     
     public deleteItemByName(req: any, res: any){
-        Item.deleteOne({"name": req.body.name}, function(err: any, data: any){
+        Item.deleteOne({"name": req.params.name}, function(err: any, data: any){
             if(err){
                 res.status(400).send(err);
             }
