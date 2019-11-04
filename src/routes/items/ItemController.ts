@@ -103,4 +103,16 @@ export class ItemController{
             }
         });
     }
+
+    public incrementSaleCount(req: any, res: any){
+        Item.findByIdAndUpdate(req.params.itemID, {$inc: {lifetimesales: 1}}, function(err: any, data: any){
+            if(err){
+                res.status(400).send(err);
+            }
+
+            else{
+                res.status(200).send();
+            }
+        });
+    }
 }

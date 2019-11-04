@@ -11,6 +11,6 @@ items.delete('/item/:name', itemController.deleteItemByName);
 items.delete('/:itemID', itemController.deleteItemByID);
 items.put('/item/:name', itemController.updateItemByName);
 items.put('/:itemID', itemController.updateItemByID);
-
+items.put('/purchased/:itemID', itemController.incrementSaleCount);
 
 module.exports = items;
