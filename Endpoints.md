@@ -1,15 +1,15 @@
 # Endpoints
 
 ## User
-* [ ] `POST/users`
+* [x] `POST/users`
    * Create new user
-* [ ] `GET/users`
+* [x] `GET/users`
     * Return all users
-* [ ] `GET/users/${id}`
+* [x] `GET/users/${id}`
     * Return individual user
-* [ ] `PUT/users/${id}`
+* [x] `PUT/users/${id}`
     * Update individual user information
-* [ ] `GET/users/${id}/lists`
+* [x] `GET/users/${id}/lists`
     * Return individual user's lists
 
 ## Item
