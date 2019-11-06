@@ -21,7 +21,7 @@ const listController = new ListController();
  *      200:
  *        description: successfully created list
  *      400:
- *        description: failure fetching lists
+ *        description: failure creating list
  */
 lists.post("/", listController.createList);
 

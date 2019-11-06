@@ -37,6 +37,22 @@ export const SWAGGER_CONFIG = {
               type: "object",
             }
           }
+        },
+        user: {
+          properties: {
+            name: {
+              type: 'string'
+            },
+            birthday: {
+              type: 'string'
+            },
+            username: {
+              type: 'string'
+            },
+            lists: {
+              type: "array"
+            },
+          }
         }
       }
     }
