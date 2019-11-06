@@ -12,24 +12,24 @@ export class UserController {
 
   public createUser(req: any, res: any) {
     if(
-      !req.body.name ||
-      !req.body.birthday ||
-      !req.body.gender ||
-      !req.body.lists ||
-      !req.body.username ||
-      !req.body.password
+      !req.body.Name ||
+      !req.body.Birthday ||
+      !req.body.Gender ||
+      !req.body.Lists ||
+      !req.body.Username ||
+      !req.body.Password
     ) {
       res.status(400).send({
         error: 'Please provide all required information for user registration'
       });
     } else {
       User.create({
-      "Name" : req.body.name,
-      "Birthday" : req.body.birthday,
-      "Gender" : req.body.gender,
-      "Lists" : req.body.lists,
-      "Username" : req.body.username,
-      "Password" : req.body.password
+      "Name" : req.body.Name,
+      "Birthday" : req.body.Birthday,
+      "Gender" : req.body.Gender,
+      "Lists" : req.body.Lists,
+      "Username" : req.body.Username,
+      "Password" : req.body.Password
       }, (err: any, data: any) => {
         if(err) {
           res.send(err);
@@ -74,10 +74,10 @@ export class UserController {
   }
 
   public updateUser(req: any, res: any) {
-    User.findByIdAndUpdate(
-      req.params.username,
+    User.findOneAndUpdate(
+      {'Username': req.params.username},
       req.body,
-      {new: true},
+      {upstert: true},
       (err: any, data: any) => {
         if (err) return res.status(500).send(err);
         return res.send(data);
@@ -85,8 +85,8 @@ export class UserController {
   }
 
   public deleteUser(req: any, res: any) {
-    User.findByIdAndRemove(
-      req.params.username,
+    User.findOneAndDelete(
+      {'Username': req.params.username},
       (err: any, data:any) => {
         if (err) return res.status(500).send(err);
         const response = {

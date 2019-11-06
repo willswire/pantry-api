@@ -2,28 +2,28 @@ import { Schema, model  } from 'mongoose'
 
 
 const UserSchema = new Schema({
-  name: {
+  Name: {
     type: String,
     required: true
   },
-  birthday: {
+  Birthday: {
     type: Date,
     required: true
   },
-  gender: {
+  Gender: {
     type: String,
     required: false
   },
-  lists: {
+  Lists: {
     type: Array,
     required: true
   },
-  username: {
+  Username: {
     type: String,
     required: true,
     unique: true
   },
-  password: {
+  Password: {
     type: String,
     required: true
   },
