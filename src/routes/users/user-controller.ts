@@ -52,7 +52,7 @@ export class UserController {
   }
 
   public getUser(req: any, res: any) {
-    User.findById(req.params.userId, (err: any, data: any) => {
+    User.findById(req.params.userID, (err: any, data: any) => {
       if (err) {
         res.send(err);
       } else {
@@ -64,7 +64,7 @@ export class UserController {
 
   public getUserLists(req: any, res: any) {
     User.findById(
-      req.params.userId,
+      req.params.userID,
       (err: any, data: any) => {
         if (err) {
           res.send(err);
@@ -77,7 +77,7 @@ export class UserController {
 
   public updateUser(req: any, res: any) {
     User.findByIdAndUpdate(
-      req.params.userId,
+      req.params.userID,
       req.body,
       {upstert: true},
       (err: any, data: any) => {
@@ -88,7 +88,7 @@ export class UserController {
 
   public deleteUser(req: any, res: any) {
     User.findByIdAndDelete(
-      req.params.userId,
+      req.params.userID,
       (err: any, data:any) => {
         if (err) return res.status(500).send(err);
         const response = {
