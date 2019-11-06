@@ -52,7 +52,7 @@ export class UserController {
   }
 
   public getUser(req: any, res: any) {
-    User.find({'Username': req.params.username}, (err: any, data: any) => {
+    User.findById(req.params.userId, (err: any, data: any) => {
       if (err) {
         res.send(err);
       } else {
@@ -63,19 +63,21 @@ export class UserController {
   }
 
   public getUserLists(req: any, res: any) {
-    User.find({'Username': req.params.username}, (err: any, data: any) => {
-      if (err) {
-        res.send(err);
-      } else {
-        console.log(data.lists);
-        res.send(data.lists);
-      }
-    });
+    User.findById(
+      req.params.userId,
+      (err: any, data: any) => {
+        if (err) {
+          res.send(err);
+        } else {
+          console.log(data.lists);
+          res.send(data.lists);
+        }
+      });
   }
 
   public updateUser(req: any, res: any) {
-    User.findOneAndUpdate(
-      {'Username': req.params.username},
+    User.findByIdAndUpdate(
+      req.params.userId,
       req.body,
       {upstert: true},
       (err: any, data: any) => {
@@ -85,8 +87,8 @@ export class UserController {
   }
 
   public deleteUser(req: any, res: any) {
-    User.findOneAndDelete(
-      {'Username': req.params.username},
+    User.findByIdAndDelete(
+      req.params.userId,
       (err: any, data:any) => {
         if (err) return res.status(500).send(err);
         const response = {

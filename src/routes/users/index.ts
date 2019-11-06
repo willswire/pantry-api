@@ -7,9 +7,9 @@ const controller = new UserController();
 // users.get('/:userID', controller.getUserByID);
 users.post('/', controller.createUser);
 users.get('/', controller.getUsers);
-users.get('/:username', controller.getUser);
-users.get('/:username/lists', controller.getUserLists);
-users.put('/:username', controller.updateUser);
-users.delete('/:username', controller.deleteUser);
+users.get('/:userId', controller.getUser);
+users.get('/:userId/lists', controller.getUserLists);
+users.put('/:userId', controller.updateUser);
+users.delete('/:userId', controller.deleteUser);
 
 module.exports = users;
