@@ -2,11 +2,11 @@ import { sign } from "jsonwebtoken";
 import { config } from "../../config/config";
 const User = require('../../models/user');
 
-// function generateToken(user: any) {
-//   return sign(user, config.secret, {
-//     expiresIn: 10080 // in seconds
-//   });
-// }
+function generateToken(user: any) {
+  return sign(user, config.secret, {
+    expiresIn: 10080 // in seconds
+  });
+}
 
 export class UserController {
 
@@ -70,12 +70,31 @@ export class UserController {
         console.log(data.lists);
         res.send(data.lists);
       }
-    })
+    });
   }
 
   public updateUser(req: any, res: any) {
-    
+    User.findByIdAndUpdate(
+      req.params.username,
+      req.body,
+      {new: true},
+      (err: any, data: any) => {
+        if (err) return res.status(500).send(err);
+        return res.send(data);
+      });
   }
 
-  public deleteUser(req: any, res: any) { }
+  public deleteUser(req: any, res: any) {
+    User.findByIdAndRemove(
+      req.params.username,
+      (err: any, data:any) => {
+        if (err) return res.status(500).send(err);
+        const response = {
+          message: "User successfully deleted",
+          id: data._id
+        };
+        return res.status(200).send(response);
+      }
+    );
+  }
 }
