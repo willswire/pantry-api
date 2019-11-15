@@ -1,5 +1,4 @@
-import { Schema, model  } from 'mongoose'
-
+import { model, Schema  } from "mongoose";
 
 const UserSchema = new Schema({
   Name: {
@@ -31,4 +30,4 @@ const UserSchema = new Schema({
   versionKey: false, // You should be aware of the outcome after set to false
 });
 
-module.exports = model('User', UserSchema);
+module.exports = model("User", UserSchema);

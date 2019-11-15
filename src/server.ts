@@ -3,9 +3,9 @@ import express from "express";
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 import { SWAGGER_CONFIG } from "./swaggerConfig";
-var jwt = require("jsonwebtoken");
-import { ApiRouter } from "./router";
+let jwt = require("jsonwebtoken");
 import { config } from "./config/config";
+import { ApiRouter } from "./router";
 
 class Application {
     public app: express.Application;
@@ -18,15 +18,15 @@ class Application {
         this.app.use(bodyParser.json());
         this.initCors();
 
-        this.app.all('*',function(req,res,next){
-            if(req.query.token){
+        this.app.all("*", function(req, res, next) {
+            if (req.query.token) {
                 try {
                     jwt.verify(req.query.token, config.secret);
                     next();
-                  } catch(err) {
+                  } catch (err) {
                     res.status(401).send();
                   }
-            }else{
+            } else {
                 res.status(401).send(); // 401 Not Authorized
             }
         });
