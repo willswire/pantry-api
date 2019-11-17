@@ -12,4 +12,4 @@ To create a js transpiled version and serve it, run
 npm start
 ```
 
-View the docs whenever the api is running by navigating to $(url)/docs 
+View the docs whenever the api is running by navigating to the base url
