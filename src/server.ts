@@ -18,7 +18,7 @@ class Application {
         this.app.use(bodyParser.json());
         this.initCors();
 
-        this.app.all("*", function(req, res, next) {
+        this.app.all("/api/*", function(req, res, next) {
             if (req.query.token) {
                 try {
                     jwt.verify(req.query.token, config.secret);
@@ -30,6 +30,10 @@ class Application {
                 res.status(401).send(); // 401 Not Authorized
             }
         });
+      
+        this.app.get("/", function(req, res) {
+          res.redirect(303, '/docs/')
+        })
     }
     // Starts the server on the port specified in the environment or on port 3000 if none specified.
     public start(): void {

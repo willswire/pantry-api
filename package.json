@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "connects to the MongoDB instance and provides data for our pantry app",
   "main": "dist/server.ts",
+  "engines": {
+    "node": "10.x"
+  },
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/jsonwebtoken": "^8.3.5",
