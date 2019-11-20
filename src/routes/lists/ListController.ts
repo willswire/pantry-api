@@ -35,13 +35,16 @@ export class ListController {
     }
 
     public deleteListByID(req: any, res: any) {
-        List.findOneAndDelete(req.params.listID, function(err: any, data: any) {
-            if (err) {
-                res.send(err);
-            } else {
-                res.send(200).send();
-            }
-        });
+      List.findByIdAndDelete(
+        req.params.listID,
+        (err: any, data: any) => {
+          if (err) {
+            res.send(err);
+          } else {
+            res.send(200).send();
+          }
+        }
+      );
     }
 
 }
