@@ -3,7 +3,8 @@ import express from "express";
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 import { SWAGGER_CONFIG } from "./swaggerConfig";
-
+let jwt = require("jsonwebtoken");
+import { config } from "./config/config";
 import { ApiRouter } from "./router";
 
 class Application {
@@ -16,6 +17,23 @@ class Application {
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(bodyParser.json());
         this.initCors();
+
+        this.app.all("/api/*", function(req, res, next) {
+            if (req.query.token) {
+                try {
+                    jwt.verify(req.query.token, config.secret);
+                    next();
+                  } catch (err) {
+                    res.status(401).send();
+                  }
+            } else {
+                res.status(401).send(); // 401 Not Authorized
+            }
+        });
+      
+        this.app.get("/", function(req, res) {
+          res.redirect(303, '/docs/')
+        })
     }
     // Starts the server on the port specified in the environment or on port 3000 if none specified.
     public start(): void {

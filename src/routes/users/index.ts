@@ -1,6 +1,15 @@
-const users = require('express').Router();
+import { Router } from "express";
+import { UserController } from "./user-controller";
 
-// users.get('/', GETFUNCTION);
-// users.put('/:itemID, PUTFUNCTION);
+const users = Router();
+const controller = new UserController();
+
+// users.get('/:userID', controller.getUserByID);
+users.post("/", controller.createUser);
+users.get("/", controller.getUsers);
+users.get("/:userID", controller.getUser);
+users.get("/:userID/lists", controller.getUserLists);
+users.put("/:userID", controller.updateUser);
+users.delete("/:userID", controller.deleteUser);
 
 module.exports = users;
