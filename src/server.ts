@@ -1,22 +1,20 @@
 import bodyParser from "body-parser";
 import express from "express";
-import swaggerJsdoc from "swagger-jsdoc";
-import swaggerUI from "swagger-ui-express";
-import { SWAGGER_CONFIG } from "./swaggerConfig";
-var jwt = require("jsonwebtoken");
-import { ApiRouter } from "./router";
+
+let jwt = require("jsonwebtoken");
 import { config } from "./config/config";
+import { ApiRouter } from "./router";
 
 class Application {
-    public app: express.Application;
-    public port: number;
+  public app: express.Application;
+  public port: number;
 
-    constructor() {
-        this.app = express();
-        this.port = +process.env.serverPort || 3000;
-        this.app.use(bodyParser.urlencoded({ extended: false }));
-        this.app.use(bodyParser.json());
-        this.initCors();
+  constructor() {
+    this.app = express();
+    this.port = +process.env.serverPort || 3000;
+    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(bodyParser.json());
+    this.initCors();
 
     this.app.all("/api/*", function(req, res, next) {
       if (req.get('Authorization')) {

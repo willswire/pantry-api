@@ -1,13 +1,15 @@
 # Pantry API
-### Development Help
+## Development
 use the command
 ```
 npm run dev
 ```
 to run a development server.
-To create a js transpiled version, run 
+
+## Production
+To create a js transpiled version and serve it, run 
 ```
-npm run build
+npm start
 ```
 
-View the docs whenever the api is running by navigating to $(url)/docs 
+View the docs whenever the api is running by navigating to the base url
