@@ -17,9 +17,9 @@ class Application {
     this.initCors();
 
     this.app.all("/api/*", function(req, res, next) {
-      if (req.query.token) {
+      if (req.get('Authorization')) {
         try {
-          jwt.verify(req.query.token, config.secret);
+          jwt.verify(req.get('Authorization'), config.secret);
           next();
         } catch (err) {
           res.status(401).send();
@@ -57,6 +57,15 @@ class Application {
         "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials"
       );
       res.header("Access-Control-Allow-Credentials", "true");
+
+      /* 
+      The internet told me to add this to fix cors problems for API calls
+      made from the browser... and it worked
+      */
+      if (req.method === "OPTIONS") {
+        return res.status(200).end();
+      }
+
       next();
     });
   }
