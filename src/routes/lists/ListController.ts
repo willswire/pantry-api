@@ -10,9 +10,7 @@ export class ListController {
         const newListID = mongoose.Types.ObjectId();
         List.create({
             _id: newListID,
-            has: new Object,
-            wants: new Object,
-            had: new Object,
+            items: new Array,
             title: req.body.title
         }, function(err: any, data: any) {
             if (err) {
@@ -46,5 +44,19 @@ export class ListController {
         }
       );
     }
+  
+    public updateListByID(req: any, res: any) {
+      List.findByIdAndUpdate(
+        req.params.listID, req.body, function(err: any, data: any){
+            if(err){
+                res.status(400).send(err);
+            }
 
+            else{
+                res.status(200).send();
+            }
+        }
+      );
+    }
+    
 }

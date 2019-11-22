@@ -16,6 +16,7 @@ class Application {
     this.app.use(bodyParser.json());
     this.initCors();
 
+    /*
     this.app.all("/api/*", function(req, res, next) {
       if (req.get('Authorization')) {
         try {
@@ -28,6 +29,8 @@ class Application {
         res.status(401).send(); // 401 Not Authorized
       }
     });
+    */
+    
   }
   // Starts the server on the port specified in the environment or on port 3000 if none specified.
   public start(): void {

@@ -3,9 +3,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const listsSchema = new Schema({
-  has: Object,
-  wants: Object,
-  had: Object,
+  items: Array,
   title: String
 }, {
   versionKey: false, // You should be aware of the outcome after set to false
