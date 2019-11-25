@@ -30,7 +30,9 @@ class Application {
       }
     });
     
-    
+    this.app.get("/", function(req, res, next) {
+      res.json({status: "awake"});
+    });
   }
   // Starts the server on the port specified in the environment or on port 3000 if none specified.
   public start(): void {
