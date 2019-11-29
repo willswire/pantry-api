@@ -11,5 +11,6 @@ users.get("/:userID", controller.getUser);
 users.get("/:userID/lists", controller.getUserLists);
 users.put("/:userID", controller.updateUser);
 users.delete("/:userID", controller.deleteUser);
+users.post("/:userID/join", controller.joinList);
 
 module.exports = users;
