@@ -83,7 +83,6 @@ export class UserController {
   }
 
   public joinList(req: any, res: any) {
-    console.log("YE");
     User.findOneAndUpdate(
       {"Username": req.params.userID},
       { $push: { Lists: req.body.listID } },
