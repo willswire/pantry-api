@@ -13,10 +13,10 @@ const UserSchema = new Schema({
     type: String,
     required: false
   },
-  Lists: {
-    type: Array,
+  Lists: [{
+    type: Schema.Types.ObjectId,
     required: true
-  },
+  }],
   Username: {
     type: String,
     required: true,
