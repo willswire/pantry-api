@@ -13,6 +13,7 @@ export class ListController {
           _id: newListID,
           items: new Array,
           title: req.body.title,
+          favorite: false,
           function(err: any, data: any) {
             if (err) {
               console.log(err);
@@ -26,7 +27,7 @@ export class ListController {
           {$push: { Lists: newListID }},
           {upstert: true},
           (err: any, data: any) => {
-            if (err) { return res.sendStatus(500).send(err); }
+            if (err) { return res.sendStatus(500); }
             return res.send(data);
         });
     }
@@ -67,10 +68,10 @@ export class ListController {
         req.params.listID, req.body, function(err: any, data: any){
             if(err){
                 res.sendStatus(400);
+                console.log(err);
             }
-
             else{
-                res.sendStatus(200);
+                console.log(data);
             }
         }
       );
