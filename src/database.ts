@@ -3,7 +3,7 @@ const mongo = require('mongoose');
 
 const client = mongo.connect(
   uri,
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false },
   function(error: any, response: any) {
     if (error) {
       console.log("Unable to connect to MongoDB Atlas Instance.");
