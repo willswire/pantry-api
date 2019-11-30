@@ -82,6 +82,16 @@ export class UserController {
       });
   }
 
+  public joinList(req: any, res: any) {
+    User.findOneAndUpdate(
+      {"Username": req.params.userID},
+      { $push: { Lists: req.body.listID } },
+      (err: any, data: any) => {
+        if (err) { return res.status(500).send(err); }
+        return res.status(200).send(data);
+      });
+  }
+
   public updateUser(req: any, res: any) {
     User.findByIdAndUpdate(
       req.params.userID,
