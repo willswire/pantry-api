@@ -7,5 +7,6 @@ lists.post("/", listController.createList);
 lists.get("/:listID", listController.getListByID);
 lists.put("/:listID", listController.updateListByID);
 lists.delete("/:listID/:userID", listController.deleteListByID);
+lists.delete("/:listID/:itemID", listController.deleteItemFromList);
 
 module.exports = lists;

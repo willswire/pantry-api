@@ -3,7 +3,10 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const listsSchema = new Schema({
-  items: Array,
+  items: [{
+    type: Schema.Types.ObjectId,
+    required: true
+  }],
   title: String,
   favorite: Boolean
 }, {
