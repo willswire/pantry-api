@@ -1,5 +1,6 @@
 const User = require("../../models/User");
 const List = require("../../models/List");
+const Item = require("../../models/Item");
 const mongoose = require("mongoose");
 
 export class ListController {
@@ -56,6 +57,17 @@ export class ListController {
       User.findByIdAndUpdate(
         req.params.userID,
         {$pullAll: { Lists: [req.params.listID] }},
+        {new: true},
+        (err: any, data: any) => {
+          if (err) { return res.send(err); }
+          return res.send(data);
+        });
+    }
+  
+    public deleteItemFromList(req: any, res: any) {
+      List.findByIdAndUpdate(
+        req.params.listID,
+        {$pullAll: { items: [req.params.itemID] }},
         {new: true},
         (err: any, data: any) => {
           if (err) { return res.send(err); }
