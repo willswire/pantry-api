@@ -32,6 +32,24 @@ export class ListController {
             return res.send(data);
         });
     }
+  
+    public addItemToList(req: any, res: any) {
+        if (!req.params.listID || !req.params.itemID) {
+            res.send({ error: "Please specify a item and list ID for this new list" });
+        }
+        List.findByIdAndUpdate(
+          req.params.listID,
+          {$push: { items: req.params.itemID }},
+          {upstert: true},
+          (err: any, data: any) => {
+            if (err) {
+                res.send(err);
+            } else {
+                console.log(data);
+                res.send(data);
+            }
+        });
+    }
 
     public getListByID(req: any, res: any) {
         List.findById(req.params.listID, function(err: any, data: any) {
